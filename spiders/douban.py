@@ -19,9 +19,6 @@ class DoubanSpider(scrapy.Spider):
     start_urls = groupurls.hangzhou
 
     def parse(self, response):
-        # new_urls = self.parser.parseUrl(response.request.url, response.text,r"/group/topic/.")
-        # self.topicurls.add_new_urls(new_urls)
-        # print("总计urls" + str(self.topicurls.url_count()))
 
         soup = BeautifulSoup(response.text, 'html.parser')
         # 选取所有标签tr 且class属性等于even或odd的元素

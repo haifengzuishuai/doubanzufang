@@ -3,7 +3,7 @@ import datetime
 
 from mySpider.baiduapi import getHz
 from mySpider.mysql.mysql_DBUtils import MyPymysqlPool
-from mySpider.subway import stationList, HangZhouStationList
+from mySpider.subway import ShangHaiStationList, HangZhouStationList
 from mySpider.plot import plot, HangZhouPlot
 import string
 

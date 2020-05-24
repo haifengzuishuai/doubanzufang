@@ -13,6 +13,7 @@ def getHz(text):
     request_url = request_url + "?access_token=" + access_token
     headers = {'Content-Type': 'application/json;charset=UTF-8'}
     response = requests.post(url=request_url, headers=headers, data=params.encode())
+    print(response.text)
     if response.status_code == 200:
         if (json.loads(response.text)['results'][0]['score'] > 0.5):
             return json.loads(response.text)['results'][0]['name']

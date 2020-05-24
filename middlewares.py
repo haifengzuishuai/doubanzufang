@@ -110,15 +110,26 @@ class MyspiderDownloaderMiddleware(object):
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
 
-proxyServer = "http://127.0.0.1:8778"
+
+import base64
+
+# 代理服务器
+proxyServer = "http://http-pro.abuyun.com:9010"
+
+# 代理隧道验证信息
+proxyUser = "H9DU6H9X86J9EZ3P"
+proxyPass = "D922B7B80E98B889"
+proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
 
 class myProxy(object):
     def process_request(self, request, spider):
         # request.headers["User-Agent"] = my_fake_useragent.UserAgent().random()
         request.headers["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
         # request.meta["proxy"] = proxyServer
+        # request.meta["proxy"] = proxyServer
+        # request.headers["Proxy-Authorization"] = proxyAuth
 
-    def process_response(self, request, response, spider):
+def process_response(self, request, response, spider):
         if response.status != 200:
             return request
         return response
