@@ -6,17 +6,22 @@ import scrapy
 from bs4 import BeautifulSoup
 from lxml import etree
 
+from mySpider import test1
 from mySpider.items import MyspiderItem
 from mySpider.mysql.mysql_DBUtils import MyPymysqlPool
 from mySpider.spiders import groupurls
+
+
 # python3 -m scrapy crawl quotes
+
 
 class DoubanSpider(scrapy.Spider):
     name = 'douban'
     allowed_domains = ['www.douban.com']
 
     # 测试url start_urlsteststart_urls
-    start_urls = groupurls.hangzhou
+    # start_urls = groupurls.hangzhou
+    start_urls = test1.cityurls
 
     def parse(self, response):
 

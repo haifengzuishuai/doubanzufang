@@ -1,6 +1,6 @@
 [dbMysql]
 host = 111
-port = 111
-user = 111
+port = 3305
+user = root
 password = 111
 db_name = 111
